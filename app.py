@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<html>
+    return """<html>
             <head>
                 <title>首頁</title>
             </head>
@@ -14,7 +14,7 @@ def home():
 
                 <a href="/about">前往 About</a>
             </body>
-        </html>"
+        </html>"""
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
