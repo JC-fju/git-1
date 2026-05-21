@@ -25,7 +25,7 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    return render_template("index.html", name="Jerry")
+    return render_template("home.html", name="Jerry")
 
 @app.route("/html_tags")
 def html_tags():
@@ -57,6 +57,23 @@ def add_todo():
         db.session.add(new_todo)
 
         db.session.commit()
+
+    return redirect("/todo")
+
+@app.route("/update/<int:id>", methods=["POST"])
+def update_todo(id):
+
+    todo = Todo.query.get(id)
+
+    if todo:
+
+        new_content = request.form.get("content")
+
+        if new_content:
+
+            todo.content = new_content
+
+            db.session.commit()
 
     return redirect("/todo")
 

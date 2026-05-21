@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask MVP</title>
@@ -10,6 +11,7 @@
         <a href="{{ url_for('home') }}">首頁</a>
         <a href="{{ url_for('about') }}">關於我們</a>
         <a href="{{ url_for('html_tags') }}">HTML 展示</a>
+        <a href="{{ url_for('todo') }}">Todo List</a>
     </nav>
 
     <hr> {% block content %}
